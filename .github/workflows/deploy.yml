@@ -35,9 +35,7 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
 
-      - name: Debug File Structure
-        run: ls -R
-        working-directory: ./Terraform
+
 
       - name: Ensure Scripts Are Executable
         run: chmod +x *.sh || true

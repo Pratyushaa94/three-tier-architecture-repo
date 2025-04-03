@@ -23,6 +23,12 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Debug - Check Directory Existence
+        run: ls -la
+
+      - name: Ensure Terraform Directory Exists
+        run: mkdir -p ./three-tier-arch
+
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
         with:
@@ -34,8 +40,6 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
-
-
 
       - name: Ensure Scripts Are Executable
         run: chmod +x *.sh || true
